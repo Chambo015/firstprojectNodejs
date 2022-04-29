@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="mb-1 flex justify-center">
+      <p  class=" text-red-700" v-if="counter < 0" >
+        {{ counter }}
+      </p>
+      <p v-else >
+        {{ counter }}
+      </p>
+    </div>
+    <div class="flex justify-center items-center min-h-full font-mukta">
+      <button @click="counter--">
+        <span
+          class="text-white bg-black rounded-full h-9 w-9 inline-block mr-1"
+        >
+          <i class="fa-solid fa-minus leading-9"></i>
+        </span>
+      </button>
+      <button @click="counter++">
+        <span
+          class="text-white bg-black rounded-full h-9 w-9 inline-block mr-1"
+        >
+         <i class="fa-solid fa-plus leading-9"></i>
+        </span>
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: {},
+  data() {
+    return {
+      counter: 0,
+    };
+  },
+};
 </script>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
